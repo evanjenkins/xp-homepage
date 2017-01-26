@@ -14,7 +14,8 @@ var DisplayFunctions = (function() {
     $(close).each(function() {
       var self = this;
       $(this).data("button-text", $(this).find('.closeable--button').html());
-      var height = $(this).height();
+      var height = $(this).innerHeight();
+      console.log(height);
 
       $(this).find('.closeable--button').on('click', function() {
         var button = this;
@@ -199,7 +200,6 @@ var DisplayFunctions = (function() {
     initFoundation();
     customDropdown($(".xprize-custom-dropdown a[data-attribute-show]"));
     toggleChevron(".xprize-custom-dropdown a.show-for-small");
-    closeables('.closeable')
     // Needed to do a custom smooth scroll. The magellan nav
     // couldn't have 2 offsets.
     customSmoothScroll("#mobile-links a");
@@ -215,13 +215,27 @@ var DisplayFunctions = (function() {
     customDropdown: customDropdown,
     customSmoothScroll: customSmoothScroll,
     bindSliderClickMobile: bindSliderClickMobile,
-    bindSearchBox: bindSearchBox
+    bindSearchBox: bindSearchBox,
+    closeables: closeables
   };
 })();
 
 
 $(document).ready(function() {
   "use strict";
-
   DisplayFunctions.init();
+
+  $('.closeable.closeable--with-images').each(function() {
+    var $images = $(this).find('img');
+    var loaded_img_count = 0;
+    var self = this;
+
+    $images.load(function() {
+      loaded_img_count++;
+
+      if (loaded_img_count == $images.length) {
+        DisplayFunctions.closeables(self);
+      }
+    });
+  });
 });
