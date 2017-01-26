@@ -1,0 +1,30 @@
+////////////////////
+// Sign up forms
+////////////////////
+
+.sign-up-form {
+
+  @include breakpoint(large) {
+    h2 {
+      font-size: rem-calc(40);
+    }
+  }
+
+  form {
+
+    @include breakpoint(large) {
+      justify-content: space-between;
+      display: flex;
+
+      input {
+        flex: 0 0 78%;
+      }
+
+      .button {
+        flex: 0 0 20%;
+        font-size: rem-calc(18);
+      }
+    }
+  }
+}
+

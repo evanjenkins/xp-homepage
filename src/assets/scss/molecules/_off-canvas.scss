@@ -1,0 +1,19 @@
+/////////////////////
+// Off-canvas nav
+////////////////////
+
+.off-canvas {
+  padding-top: rem-calc(60);
+
+  a {
+    color: $white;
+    display: block;
+    font-weight: $header-font-weight;
+    padding: $global-padding;
+    text-transform: uppercase;
+  }
+
+  li {
+    position: relative;
+  }
+}

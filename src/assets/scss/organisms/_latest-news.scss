@@ -1,0 +1,53 @@
+/////////////////////////
+// Latest news organism
+/////////////////////////
+.latest-news {
+
+  .button.large {
+    font-size: rem-calc(12);
+
+    &:after {
+      height: rem-calc(5);
+    }
+  }
+}
+
+@include breakpoint(large) {
+  .latest-news--main {
+
+    > .card {
+      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, .6);
+    }
+  }
+}
+
+.latest-news--lower {
+
+  .columns:last-child {
+
+    .card--underlined {
+
+      &:after {
+        display: none;
+      }
+    }
+  }
+
+  h3 {
+
+    @include breakpoint(medium) {
+      font-size: rem-calc(14);
+    }
+  }
+
+  p {
+    @include breakpoint(medium) {
+      font-size: rem-calc(12);
+    }
+  }
+
+  img {
+    padding-left: $card-padding;
+    padding-right: $card-padding;
+  }
+}

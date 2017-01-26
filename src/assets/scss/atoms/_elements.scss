@@ -1,0 +1,15 @@
+////////////////////////
+// Basic elements
+///////////////////////
+
+blockquote {
+  font-size: $cite-font-size;
+
+  p {
+    line-height: 1.2;
+  }
+
+  cite {
+    text-align: right;
+  }
+}

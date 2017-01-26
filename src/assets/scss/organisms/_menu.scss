@@ -1,0 +1,50 @@
+////////////////////////
+// Menu
+////////////////////////
+@mixin menu-hover {
+  color: $dark-gray;
+  background-color: $white;
+}
+
+.top-bar {
+  flex-wrap: nowrap;
+  position: absolute;
+  width: 100%;
+  z-index: 3;
+
+  .top-bar-right {
+    flex: 0 0 auto;
+  }
+
+  h1 {
+    position: absolute;
+  }
+
+  a {
+    color: $white;
+    font-size: rem-calc(14);
+    font-weight: $header-font-weight;
+    text-transform: uppercase;
+    transition: all .2s ease;
+
+    &:hover {
+      @include menu-hover;
+    }
+  }
+
+  .is-active {
+
+    a {
+      @include menu-hover;
+    }
+  }
+
+  @include breakpoint(large) {
+    .menu > li {
+
+      > a {
+        margin-bottom: rem-calc(4);
+      }
+    }
+  }
+}

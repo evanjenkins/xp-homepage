@@ -1,0 +1,76 @@
+/////////////////////////
+// Background sections
+/////////////////////////
+.section {
+  padding-bottom: map_get($section-padding, 'small');
+  padding-top: map_get($section-padding, 'small');
+
+  @include breakpoint('medium') {
+    padding-bottom: map_get($section-padding, 'medium');
+    padding-top: map_get($section-padding, 'medium');
+  }
+
+  @include breakpoint('large') {
+    padding-bottom: map_get($section-padding, 'large');
+    padding-top: map_get($section-padding, 'large');
+  }
+
+  &.color-section--large-up {
+    @include breakpoint(medium down) {
+      background-color: transparent;
+    }
+  }
+
+  &.closeable {
+    position: relative;
+    overflow: hidden;
+
+    @include breakpoint(large) {
+      padding-bottom: rem-calc(100);
+    }
+
+    .button {
+      @include center('x');
+      bottom: rem-calc(32);
+      position: absolute;
+      z-index: 3;
+    }
+
+    &:after {
+      background: linear-gradient(transparent, $black);
+      bottom: 0;
+      content: '';
+      display: block;
+      position: absolute;
+      height: rem-calc(100);
+      width: 100%;
+    }
+
+    &.closeable--open {
+
+      &:after {
+        display: none;
+      }
+    }
+  }
+}
+
+.color-section--light-gray {
+  background-color: $light-gray;
+  color: color-pick-contrast($light-gray, ($white, $dark-gray));
+}
+
+.color-section--charcoal-gray {
+  background-color: $charcoal-gray;
+  color: color-pick-contrast($charcoal-gray, ($white, $dark-gray));
+
+  p,
+  blockquote,
+  .subheader,
+  cite {
+    color: $white;
+  }
+}
+
+
+

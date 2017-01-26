@@ -1,0 +1,108 @@
+<footer class="footer">
+  <div class="footer-top show-for-large">
+    <ul class="row large-up-5 menus-wrapper">
+      <li class="column">
+        <a href="http://www.xprize.org/about"><strong>About</strong></a>
+        {{> about-sub-nav }}
+      </li>
+      <li class="column">
+        <a href="/prizes"><strong>Prizes</strong></a>
+        {{> prizes-sub-nav }}
+      </li>
+      <li class="column">
+        <a href="http://www.xprize.org/news"><strong>News</strong></a>
+         {{> ideas-sub-nav }}
+      </li>
+      <li class="column">
+        <a href="http://www.xprize.org/benefactors"><strong>Benefactors</strong></a>
+        {{> benefactors-sub-nav }}
+      </li>
+      <li class="column">
+        <a href="http://www.xprize.org/get-involved"><strong>Community</strong></a>
+        {{> involved-sub-nav }}
+      </li>
+    </ul>
+    <div class="row collapse align-right large-up-5 social-icons social-icons--sm">
+      <div class="column">
+        <strong>Join the Conversation</strong>
+        <div>
+          <span class="icons-join-twitter otw-twitter"><a href="https://twitter.com/xprize" title="Find XPRIZE on Twitter" target="_blank">twitter</a></span>
+          <span class="icons-join-facebook otw-facebook"><a href="https://www.facebook.com/xprize" title="Find XPRIZE on Facebook" target="_blank">facebook</a></span>
+          <span class="icons-join-google otw-googleplus"><a href="https://plus.google.com/102997835182088845710/posts" title="Find XPRIZE on Google+" target="_blank" >googleplus</a></span>
+          <span class="icons-join-youtube otw-youtube"><a href="https://www.youtube.com/user/xprize/" title="Find XPRIZE on YouTube" target="_blank">youtube</a></span>
+          <span class="icons-join-linkedin otw-linkedin"><a href="https://www.linkedin.com/company/x-prize-foundation" title="Find XPRIZE on LinkedIn" target="_blank">linkedin</a></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Mobile footer nav -->
+  <div class="mobile-footer hide-for-large">
+    <div class="row collapse xprize-links-footer xprize-links-theme">
+      <ul class="large-9 medium-12 small-12 columns">
+        <!-- ABOUT XPRIZE -->
+        <li class="xprize-link-1 xprize-custom-dropdown">
+          <a href="http://xprize.org/about">About</a>
+          <a data-attribute-show="about-xprize-footer" class="dropdown-toggler show-for-small"><i class="fa fa-chevron-down icon"></i></a>
+          <div class="about-xprize-footer custom-dropdown-content xprize-links-sub">
+            {{> about-sub-nav }}
+          </div>
+          <div class="clearfix"></div>
+        </li>
+        <!-- PRIZES -->
+        <li class="xprize-link-2 xprize-custom-dropdown">
+          <a href="http://xprize.org/prizes">Prizes</a><a data-attribute-show="xprize-prizes-footer" class="dropdown-toggler show-for-small"><i class="fa fa-chevron-down icon"></i></a>
+          <div class="xprize-prizes-footer custom-dropdown-content xprize-links-sub">
+            {{> prizes-sub-nav }}
+          </div>
+          <div class="clearfix"></div>
+        </li>
+        <!-- Grand Challenges -->
+        <li class="xprize-link-3 xprize-custom-dropdown">
+          <a href="http://xprize.org/grand-challenges">Grand Challenges</a><a data-attribute-show="grand-challenges-footer" class="dropdown-toggler show-for-small"><i class="fa fa-chevron-down icon"></i></a>
+          <div class="grand-challenges-footer custom-dropdown-content xprize-links-sub">
+            {{> gc-sub-nav }}
+          </div>
+          <div class="clearfix"></div>
+        </li>
+        <!-- Ideas & Innovation -->
+        <li class="xprize-link-4 xprize-custom-dropdown">
+          <a href="http://xprize.org/news">Ideas & Innovation</a><a data-attribute-show="ideas-innovation-footer" class="dropdown-toggler show-for-small"><i class="fa fa-chevron-down icon"></i></a>
+          <div class="ideas-innovation-footer custom-dropdown-content xprize-links-sub">
+            {{> ideas-sub-nav }}
+          </div>
+          <div class="clearfix"></div>
+        </li>
+        <!-- Benefactors -->
+        <li class="xprize-link-5 xprize-custom-dropdown">
+          <a href="http://xprize.org/benefactors">Benefactors</a><a data-attribute-show="benefactors-drop-footer" class="dropdown-toggler show-for-small"><i class="fa fa-chevron-down icon"></i></a>
+          <div class="benefactors-drop-footer custom-dropdown-content xprize-links-sub">
+            {{> benefactors-sub-nav }}
+          </div>
+          <div class="clearfix"></div>
+        </li>
+        <!-- Get Involved -->
+        <li class="xprize-link-6 xprize-custom-dropdown">
+          <a href="http://xprize.org/get-involved">Get Involved</a><a data-attribute-show="get-involved-drop-footer" class="dropdown-toggler show-for-small"><i class="fa fa-chevron-down icon"></i></a>
+          <div class="get-involved-drop-footer custom-dropdown-content xprize-links-sub">
+            {{> involved-sub-nav }}
+          </div>
+          <div class="clearfix"></div>
+        </li>
+        <!-- Donate -->
+        <li class="xprize-link-7"><a href="http://xprize.org/donate">Donate</a></li>
+      </ul>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="row large-collapse">
+      <div class="small-12 columns">
+        <ul>
+          <li class=""><a href="#">Terms & Conditions</a></li>
+          <li class=""><a href="#">Privacy Policy</a></li>
+          <li class="">&copy; 2015 XPRIZE Foundation. All Rights Reserved.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>

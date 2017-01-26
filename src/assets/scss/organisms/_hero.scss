@@ -1,0 +1,83 @@
+////////////////////////////
+// Hero organism
+///////////////////////////
+.hero {
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  height: 65vh;
+  max-height: rem-calc(520);
+  padding-bottom: rem-calc(45);
+  padding-top: $topbar-height;
+  position: relative;
+
+  &:after {
+    background-color: $hero-overlay-bg;
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+  }
+
+  > .row {
+    position: relative;
+    z-index: 2;
+  }
+
+  .button {
+    color: $white;
+  }
+}
+
+.hero--wrapper {
+
+  @include breakpoint(large) {
+    align-items: flex-end;
+  }
+}
+
+.hero--main-article {
+  h3 {
+    color: $white;
+  }
+}
+
+.hero--sub-articles {
+  text-align: right;
+
+  h5 {
+    color: $primary-color;
+    text-transform: uppercase;
+  }
+}
+
+
+.hero--see-more {
+  bottom: rem-calc(16);
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  z-index: 2;
+
+  a {
+    color: $white;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    @include breakpoint(medium) {
+      font-size: rem-calc(10);
+      line-height: .6;
+    }
+
+    &:before {
+      content: '\f078';
+      display: block;
+      font-family: $fontawesome;
+      font-size: rem-calc(20);
+    }
+  }
+}

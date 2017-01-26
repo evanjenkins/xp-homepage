@@ -1,0 +1,122 @@
+//////////////////
+// Typography
+/////////////////
+
+h1,
+h2,
+h3 {
+  text-transform: uppercase;
+}
+
+.primary {
+  color: $primary-color;
+}
+
+.subheader {
+  font-family: $subheader-font-family;
+  text-transform: none;
+}
+
+// Heading styles
+@each $size, $headers in $header-styles {
+  @include breakpoint($size) {
+    @each $header, $header-defs in $headers {
+      $font-size-temp: 1rem;
+      #{$header} {
+        @if map-has-key($header-defs, letter-spacing) {
+          letter-spacing: rem-calc(map-get($header-defs, letter-spacing));
+        }
+      }
+    }
+  }
+}
+
+@each $size, $headers in $subheader-styles {
+  @include breakpoint($size) {
+    @each $header, $header-defs in $headers {
+      $font-size-temp: 1rem;
+      #{$header}.subheader {
+
+        @if map-has-key($header-defs, font-size) {
+          $font-size-temp: rem-calc(map-get($header-defs, font-size));
+          font-size: $font-size-temp;
+        } @else if map-has-key($header-defs, fs) {
+          $font-size-temp: rem-calc(map-get($header-defs, fs));
+          font-size: $font-size-temp;
+        } @else if $size == $-zf-zero-breakpoint {
+          font-size: $font-size-temp;
+        }
+        @if map-has-key($header-defs, letter-spacing) {
+          letter-spacing: rem-calc(map-get($header-defs, letter-spacing));
+        }
+      }
+    }
+  }
+}
+
+.center-text {
+  text-align: center;
+}
+
+.right-text {
+  text-align: right;
+}
+
+.header-decorator {
+  display: inline-block;
+
+  &:after {
+    background-color: $primary-color;
+    content: '';
+    display: block;
+    height: rem-calc(6);
+    margin-bottom: rem-calc(32);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: rem-calc(6);
+    max-width: rem-calc(230);
+    width: 100%;
+  }
+
+  &.header-decorator--large {
+
+    &:after {
+      display: none;
+
+      @include breakpoint(large) {
+        display: block;
+      }
+    }
+  }
+
+
+
+  &.secondary {
+
+    &:after {
+      background-color: $body-font-color;
+    }
+  }
+
+  &.right-text {
+
+    &:after {
+      margin-right: 0;
+    }
+  }
+
+  &.left-text {
+
+    &:after {
+      margin-left: 0;
+    }
+  }
+}
+
+.tiny-text {
+  font-size: rem-calc(12);
+}
+
+.small-text {
+  font-size: rem-calc(14);
+}

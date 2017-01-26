@@ -1,0 +1,48 @@
+{{!-- This is the base layout for your project, and will be used on every page. --}}
+
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XPRIZE</title>
+    <link rel="stylesheet" href="{{root}}assets/css/app.css">
+  </head>
+  <body>
+    <div class="off-canvas position-right" id="offCanvas" data-off-canvas>
+      <!-- Close button -->
+      <button class="close-button light" aria-label="Close menu" type="button" data-close>
+        <span aria-hidden="true">&times;</span>
+      </button>
+
+      <!-- Menu -->
+      <ul class="vertical menu">
+        {{> mobile-menu-items }}
+      </ul>
+    </div>
+    <div class="off-canvas-content" data-off-canvas-content>
+      <div class="top-bar">
+        <div class="top-bar-title">
+          <img src="{{root}}assets/img/logo.png" />
+          <h1 class="invisible">XPRIZE</h1>
+        </div>
+
+        <div class="top-bar-right">
+          <button class="hamburger hide-for-large" type="button" data-toggle="offCanvas">
+            <span class="hamburger-box">
+              <span class="hamburger-inner"></span>
+            </span>
+          </button>
+          <ul class="dropdown menu show-for-large" data-dropdown-menu>
+            {{> menu-items }}
+          </ul>
+        </div>
+      </div>
+      {{!-- Pages you create in the src/pages/ folder are inserted here when the flattened page is created. --}}
+      {{> body}}
+    </div>
+    {{> footer }}
+    <script src="{{root}}assets/js/app.js"></script>
+  </body>
+</html>

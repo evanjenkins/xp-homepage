@@ -1,0 +1,130 @@
+/////////////////////////
+// Card styles
+/////////////////////////
+
+
+///////////////////////////
+// Basic card overrides
+///////////////////////////
+.card {
+
+  &.card--collapse-small {
+    @include breakpoint(small only) {
+      > div {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+  }
+
+  &.card--top-bordered {
+    @include psuedo-decorator('before', $body-font-color);
+
+    &:before {
+      margin-top: map_get($section-padding, 'small');
+    }
+  }
+
+  &.card--top-bordered--medium-down {
+    @include breakpoint(large) {
+
+      &:before {
+        display: none;
+      }
+    }
+  }
+
+  .button {
+
+    &:hover {
+      background: transparent;
+    }
+  }
+}
+
+///////////////////////////
+// Image card
+///////////////////////////
+.image-card {
+  margin-bottom: map_get($grid-column-gutter, 'small') / 2;
+
+  @include breakpoint(medium) {
+    margin-bottom: map_get($grid-column-gutter, 'medium');
+  }
+
+  position: relative;
+
+  a {
+    color: $white;
+  }
+
+  //&:last-child {
+  //  $margin: rem-calc($-zf-bp-value);
+  //
+  //  margin-bottom: $margin;
+  //
+  //  @include breakpoint(medium) {
+  //    margin-bottom: map_get($grid-column-gutter, 'medium');
+  //  }
+  //}
+
+  img {
+    width: 100%;
+  }
+}
+
+.image-card--content {
+  @include center('both');
+  width: 68%;
+
+  @include breakpoint(large) {
+    background: $white;
+    color: $black;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+
+    > * {
+      font-size: rem-calc(24);
+    }
+  }
+}
+
+/////////////////////////////////
+// Card overlay content section
+/////////////////////////////////
+.background-image-card {
+  background-position: center;
+  background-size: cover;
+
+  .card-divider {
+    background: transparent;
+    padding: rem-calc(32);
+
+    @each $size, $headers in $header-styles {
+      @each $header, $header-defs in $headers {
+        #{$header} {
+          color: $white;
+        }
+      }
+    }
+  }
+
+  .header-decorator {
+    margin-top: rem-calc(16);
+
+    &:after {
+      margin-top: rem-calc(32);
+      max-width: rem-calc(155);
+    }
+  }
+
+  .card-section {
+    background: $background-image-card-content-bg;
+    color: $white;
+    padding: rem-calc(32);
+
+    .button {
+      color: $white;
+    }
+  }
+}

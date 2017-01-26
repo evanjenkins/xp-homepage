@@ -1,0 +1,61 @@
+//////////////////////
+// Social
+/////////////////////
+// Social Media
+$social-facebook-color: #3b5998;
+$social-gplus-color: #da442f;
+$social-twitter-color: #55acee;
+$social-youtube-color: #e95d1f;
+$social-linkedin-color: #0177b5;
+
+.social-icons {
+  padding-bottom: rem-calc(24);
+
+  a {
+
+    .footer & {
+      color: $gray;
+      font-size: rem-calc(20);
+    }
+  }
+
+  .otw-facebook {
+    @extend %ss-facebook-circle;
+    a:hover {
+      color: $social-facebook-color;
+    }
+  }
+
+  .otw-googleplus {
+    @extend %ss-googleplus-circle;
+    a:hover {
+      color: $social-gplus-color;
+    }
+  }
+
+  .otw-twitter {
+    @extend %ss-twitter-circle;
+    a:hover {
+      color: $social-twitter-color;
+    }
+  }
+
+  .otw-youtube {
+    @extend %ss-youtube-circle;
+    a:hover {
+      color: $social-youtube-color;
+    }
+  }
+
+  .otw-linkedin {
+    @extend %ss-linkedin-circle;
+    a:hover {
+      color: $social-linkedin-color;
+    }
+  }
+
+  .social-icons {
+    color: $light-gray;
+    font-size: $base-font-size;
+  }
+}

@@ -1,0 +1,41 @@
+/////////////////////////////
+// Custom button styles.
+/////////////////////////////
+
+%button-attributes {
+  font-family: $button-font-family;
+  font-weight: $button-font-weight;
+  text-transform: uppercase;
+}
+
+.button {
+  @extend %button-attributes;
+
+  &:not(.secondary) {
+    @include psuedo-decorator;
+  }
+
+  &.secondary {
+    padding: $secondary-button-padding;
+  }
+
+  &.small {
+
+    &:after {
+      height: rem-calc(5);
+    }
+  }
+}
+
+.text-button {
+  //@include psuedo-decorator;
+  //@include button();
+  //@extend %button-attributes;
+  background: transparent;
+  padding: 0;
+
+  &:hover {
+    background: transparent;
+  }
+}
+

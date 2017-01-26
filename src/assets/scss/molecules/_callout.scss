@@ -1,0 +1,19 @@
+//////////////////////////
+// Callout specifics
+/////////////////////////
+
+.callout {
+
+  &.background-for-large {
+
+    @include breakpoint(medium down) {
+      background: transparent;
+      padding: 0;
+
+      .button {
+        background: transparent;
+      }
+    }
+
+  }
+}

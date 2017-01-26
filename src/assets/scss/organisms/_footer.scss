@@ -1,0 +1,100 @@
+///////////////////////
+// Footer organism
+///////////////////////
+
+.footer {
+  background-color: $dark-gray;
+  border-top: rem-calc(10) solid $primary-color;
+  color: $white;
+  font-size: rem-calc(26);
+  font-weight: $header-font-weight;
+  text-transform: uppercase;
+
+  @include breakpoint(large) {
+    font-size: rem-calc(15);
+    font-weight: normal;
+    padding-top: rem-calc(30);
+    text-transform: none;
+  }
+
+  a {
+    color: $white;
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+  }
+
+  .column {
+
+    > a,
+    strong {
+      text-transform: uppercase;
+    }
+  }
+}
+
+.footer-bottom {
+  background-color: $black;
+  font-size: $base-font-size;
+  font-weight: normal;
+  text-align: center;
+  text-transform: none;
+  padding-bottom: rem-calc(10);
+  padding-top: rem-calc(10);
+
+  @include breakpoint(large) {
+    text-transform: left;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  li {
+    display: inline-block;
+
+    &:after {
+      background-color: #fefefe;
+      content: '';
+      display: inline-block;
+      height: 14px;
+      margin: 0 10px;
+      vertical-align: middle;
+      width: 1px;
+    }
+
+    &:last-child:after {
+      display: none;
+    }
+  }
+}
+
+
+.mobile-footer {
+
+  li {
+    position: relative;
+  }
+
+  a {
+    display: block;
+    padding-bottom: $global-padding;
+    padding-left: map_get($grid-column-gutter, 'small') / 2;
+    padding-right: map_get($grid-column-gutter, 'small') / 2;
+    padding-top: $global-padding;
+  }
+
+  .dropdown-toggler {
+    color: $gray;
+  }
+}

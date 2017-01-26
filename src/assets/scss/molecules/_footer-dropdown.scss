@@ -1,0 +1,31 @@
+/////////////////////////////
+// Footer dropdown (mobile)
+/////////////////////////////
+
+.xprize-custom-dropdown {
+  border-bottom: rem-calc(5) solid $gray;
+
+  @include breakpoint(medium) {
+    border-bottom: 0 none;
+  }
+}
+
+.custom-dropdown-content {
+  background-color: $charcoal-gray;
+  display: none;
+  overflow: hidden;
+
+  &.xprize-links-sub {
+
+    a {
+      padding-bottom: rem-calc(16);
+      padding-top: rem-calc(16);
+    }
+  }
+}
+
+.dropdown-toggler {
+  position: absolute;
+  right: 0;
+  top: 0;
+}

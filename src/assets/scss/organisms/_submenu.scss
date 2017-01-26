@@ -1,0 +1,33 @@
+/////////////////////
+// Submenu organism
+/////////////////////
+
+.submenu {
+  //column-count: 2;
+  list-style: none;
+  padding: $global-padding;
+
+  &.js-dropdown-active {
+     display: flex;
+     //flex-direction: column;
+     flex-wrap: wrap;
+
+     li {
+       flex: 1 0 300px;
+       max-width: 50%;
+     }
+   }
+
+  a {
+    color: $dark-gray;
+    display: block;
+    padding-bottom: rem-calc(8);
+    padding-top: rem-calc(8);
+
+    &:hover {
+
+    }
+  }
+
+
+}

@@ -1,0 +1,19 @@
+//////////////////////
+// Closeable elements
+//////////////////////
+
+.closeable--closed {
+  display: none;
+
+  @include breakpoint(large) {
+    display: block;
+  }
+}
+
+.closeable--expanded {
+
+  @include breakpoint(large) {
+    display: none;
+  }
+}
+
