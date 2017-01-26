@@ -77,14 +77,15 @@
   @include center('both');
   width: 68%;
 
-  @include breakpoint(large) {
-    background: $white;
-    color: $black;
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
-
-    > * {
+  h2 {
+    @include breakpoint(large) {
       font-size: rem-calc(24);
+      background-color: $white;
+      color: $black;
+      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text;
+      padding: rem-calc(10);
+      margin: 0;
     }
   }
 }
