@@ -8,13 +8,14 @@
 
 .top-bar {
   flex-wrap: nowrap;
+  margin: 0 auto;
   position: absolute;
   width: 100%;
   z-index: 3;
 
-  .top-bar-right {
-    flex: 0 0 auto;
-  }
+  //.top-bar-left {
+  //  flex: 0 0 auto;
+  //}
 
   h1 {
     position: absolute;

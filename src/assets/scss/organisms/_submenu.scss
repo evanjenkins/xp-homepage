@@ -5,6 +5,7 @@
 .submenu {
   //column-count: 2;
   list-style: none;
+  margin: 0;
   padding: $global-padding;
 
   &.js-dropdown-active {

@@ -10,45 +10,55 @@ var DisplayFunctions = (function() {
     // MotionUI.animateIn('#main-article', 'fade-in');
   };
 
-  var closeables = function(close) {
-    $(close).each(function() {
-      var self = this;
-      $(this).data("button-text", $(this).find('.closeable--button').html());
-      var height = $(this).innerHeight();
-      console.log(height);
+  var closeables = function(close, mq) {
+    var mediaQuery = window.matchMedia("(" + mq + ")");
+    if (mediaQuery.matches) {
+      $(close).each(function() {
+        if(typeof $(this).data('added') == 'undefined') {
+          $(this).data('added', true);
+          var self = this;
+          $(this).data("button-text", $(this).find('.closeable--button').html());
+          var height = $(this).innerHeight();
 
-      $(this).find('.closeable--button').on('click', function() {
-        var button = this;
-        if (!$(self).hasClass('closeable--open')) {
+          $(this).find('.closeable--button').on('click', function() {
+            var button = this;
+            if (!$(self).hasClass('closeable--open')) {
 
-          if (typeof $(self).attr('data-closeable-height') !== 'undefined') {
-            $(self).animate({height: height}, 500, "swing", function () {
-              $(self).css("height", 'auto');
-              $(button).html('Close X');
-            });
-          } else {
-            $(this).html('Close X');
-          }
-        } else {
-          if (typeof $(self).attr('data-closeable-height') !== 'undefined') {
-            $(self).animate({height: $(this).attr('data-closeable-height') + 'px'}, 500, "swing", function () {
-              $(self).css("height", $(this).attr('data-closeable-height') + 'px');
-              $(button).html($(self).data('button-text'));
-            });
-          } else {
-            $(this).html($(self).data('button-text'));
+              if (typeof $(self).attr('data-closeable-height') !== 'undefined') {
+                $(self).animate({height: height}, 500, "swing", function () {
+                  $(self).css("height", 'auto');
+                  $(button).html('Close X');
+                });
+              } else {
+                $(this).html('Close X');
+              }
+            } else {
+              if (typeof $(self).attr('data-closeable-height') !== 'undefined') {
+                $(self).animate({height: $(this).attr('data-closeable-height') + 'px'}, 500, "swing", function () {
+                  $(self).css("height", $(this).attr('data-closeable-height') + 'px');
+                  $(button).html($(self).data('button-text'));
+                });
+              } else {
+                $(this).html($(self).data('button-text'));
+              }
+            }
+            $(self).toggleClass('closeable--open');
+            $(self).find('.closeable--closed').toggle();
+            $(self).find('.closeable--expanded').toggle();
+            return false;
+          });
+
+          if (typeof $(this).attr('data-closeable-height') !== 'undefined') {
+            $(this).css('height', $(this).attr('data-closeable-height') + 'px');
           }
         }
-        $(self).toggleClass('closeable--open');
-        $(self).find(close + '--closed').toggle();
-        $(self).find(close + '--expanded').toggle();
-        return false;
       });
-
-      if (typeof $(this).attr('data-closeable-height') !== 'undefined') {
-        $(this).css('height', $(this).attr('data-closeable-height') + 'px');
-      }
-    });
+    }
+    else {
+      $(close).each(function() {
+        $(this).css("height", 'auto');
+      });
+    }
   };
 
   var maxHeightDropdowns = function() {
@@ -234,8 +244,21 @@ $(document).ready(function() {
       loaded_img_count++;
 
       if (loaded_img_count == $images.length) {
-        DisplayFunctions.closeables(self);
+        DisplayFunctions.closeables(self, "min-width: 1024px");
       }
     });
+  });
+
+  $('.closeable:not(.closeable--with-images)').each(function() {
+    DisplayFunctions.closeables(this, "min-width: 1024px");
+  });
+});
+
+// Initialize Foundation's equalizer on non-mobile
+$(window).on("resize", function(){
+  "use strict";
+
+  $('.closeable').each(function() {
+    DisplayFunctions.closeables(this, "min-width: 1024px");
   });
 });
