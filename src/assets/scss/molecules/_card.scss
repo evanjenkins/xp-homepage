@@ -47,6 +47,32 @@
   }
 }
 
+.image-card--top-overlay {
+  @include center('x');
+  position: absolute;
+  top: rem-calc(10);
+  width: 75%;
+}
+
+.image-card--overlay {
+  @include center();
+  width: 100%;
+  margin-top: rem-calc(-20);
+
+  p {
+    font-weight: bold;
+    color: $white;
+    font-size: rem-calc(55);
+    line-height: 1;
+    margin: 0;
+    text-transform: uppercase;
+
+    @include breakpoint(large) {
+      font-size: rem-calc(30);
+    }
+  }
+}
+
 .image-card--content {
   background-color: $white;
   padding: rem-calc(10);
