@@ -19,7 +19,7 @@ var DisplayFunctions = (function() {
           var self = this;
           $(this).data("button-text", $(this).find('.closeable--button').html());
           var height = $(this).innerHeight();
-
+          console.log($(this).data('button-text'));
           $(this).find('.closeable--button').on('click', function() {
             var button = this;
             if (!$(self).hasClass('closeable--open')) {
@@ -236,7 +236,7 @@ $(document).ready(function() {
   DisplayFunctions.init();
 
   $('.closeable.closeable--with-images').each(function() {
-    var $images = $(this).find('img');
+    var $images = $(this).find('a > img');
     var loaded_img_count = 0;
     var self = this;
 
