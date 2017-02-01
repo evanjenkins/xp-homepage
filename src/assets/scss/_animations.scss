@@ -33,8 +33,11 @@
 }
 
 .custom-slide-in-left {
-  animation: slideInLeft 1s 1;
-  position: relative;
+
+  @include breakpoint(medium) {
+    animation: slideInLeft 1s 1;
+    position: relative;
+  }
 }
 
 @keyframes dropHeader {

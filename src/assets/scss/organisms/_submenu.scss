@@ -6,7 +6,11 @@
   //column-count: 2;
   list-style: none;
   margin: 0;
-  padding: $global-padding;
+  padding: 0;
+
+  @include breakpoint(large) {
+    background-color: $white;
+  }
 
   &.js-dropdown-active {
      display: flex;
@@ -24,11 +28,44 @@
     display: block;
     padding-bottom: rem-calc(8);
     padding-top: rem-calc(8);
-
-    &:hover {
-
-    }
   }
 
+  .menu {
+    flex-wrap: wrap;
+    max-width: rem-calc(420);
+    padding: 0;
 
+    > li {
+      flex: 0 0 100%;
+
+      @include breakpoint(large) {
+        flex: 0 0 50%;
+      }
+    }
+  }
+}
+
+// Drupal overrides
+.dropdown {
+
+  .menu-minipanel-xprize-submenu {
+    background-color: transparent;
+    display: none;
+    left: initial;
+    top: 110%;
+    position: static;
+
+    @include breakpoint(large) {
+      display: block;
+      position: absolute;
+    }
+
+    .panel-display {
+      background-color: transparent;
+    }
+
+    .col-md-12 {
+      padding: 0;
+    }
+  }
 }

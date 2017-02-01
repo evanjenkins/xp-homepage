@@ -2,10 +2,11 @@
 // Footer dropdown (mobile)
 /////////////////////////////
 
-.xprize-custom-dropdown {
+.xprize-custom-dropdown,
+.footer-top .column {
   border-bottom: rem-calc(5) solid $gray;
 
-  @include breakpoint(medium) {
+  @include breakpoint(large) {
     border-bottom: 0 none;
   }
 }

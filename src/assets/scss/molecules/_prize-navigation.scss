@@ -1,0 +1,94 @@
+////////////////////////////////
+// Prize navigation
+////////////////////////////////
+.prize-navigation {
+
+  .primary-button {
+    display: inline-block;
+    padding: rem-calc(20 10 20 10);
+
+    @include breakpoint(large) {
+      padding: rem-calc(22 20 20);
+    }
+  }
+
+  a {
+    background-color: $white;
+    color: $body-font-color;
+    display: block;
+    font-size: rem-calc(14);
+    font-family: $button-font-family;
+    font-weight: bold;
+    text-transform: uppercase;
+    width: 100%;
+
+    @include breakpoint(large) {
+      font-size: rem-calc(28);
+    }
+  }
+
+  .columns {
+
+    a {
+      display: flex;
+      align-items: center;
+    }
+
+    span:not(.button-primary) {
+
+      @include breakpoint(large) {
+        max-width: rem-calc(150);
+        line-height: 1;
+      }
+    }
+
+    &:first-child {
+      padding-right: 0;
+
+      a {
+        justify-content: flex-start;
+      }
+
+      .primary-button {
+        margin-right: rem-calc(20);
+      }
+
+      span:last-child {
+
+        @include breakpoint(large) {
+          text-align: left;
+        }
+      }
+    }
+
+    &:last-child {
+      padding-left: 0;
+
+      a {
+        justify-content: flex-end;
+      }
+
+      .primary-button {
+        margin-left: rem-calc(20);
+      }
+
+      span:first-child {
+
+        @include breakpoint(large) {
+          text-align: right;
+        }
+      }
+    }
+
+    &:hover {
+
+      a {
+        background-color: $light-gray;
+      }
+
+      .primary-button {
+        background-color: darken($primary-color, 10%);
+      }
+    }
+  }
+}

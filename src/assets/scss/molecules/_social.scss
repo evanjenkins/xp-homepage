@@ -9,7 +9,16 @@ $social-youtube-color: #e95d1f;
 $social-linkedin-color: #0177b5;
 
 .social-icons {
+  display: none;
   padding-bottom: rem-calc(24);
+
+  @include breakpoint(large) {
+    display: flex;
+  }
+
+  span {
+    margin-right: rem-calc(5);
+  }
 
   a {
 

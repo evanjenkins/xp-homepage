@@ -25,8 +25,8 @@
     position: relative;
     overflow: hidden;
 
-    @include breakpoint(large) {
-      padding-bottom: rem-calc(100);
+    @include breakpoint(medium) {
+      padding-bottom: rem-calc(175);
     }
 
     .closeable--button {
@@ -36,14 +36,17 @@
       z-index: 3;
     }
 
-    &:after {
-      background: linear-gradient(transparent, $black);
-      bottom: 0;
-      content: '';
-      display: block;
-      position: absolute;
-      height: rem-calc(200);
-      width: 100%;
+    @include breakpoint(medium) {
+
+      &:after {
+        background: linear-gradient(transparent, $black);
+        bottom: 0;
+        content: '';
+        display: block;
+        position: absolute;
+        height: rem-calc(200);
+        width: 100%;
+      }
     }
 
     &.closeable--open {

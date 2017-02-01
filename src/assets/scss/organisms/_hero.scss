@@ -1,6 +1,10 @@
 ////////////////////////////
 // Hero organism
 ///////////////////////////
+.hero-outer {
+  position: relative;
+}
+
 .hero {
   background-size: cover;
   background-position: center;
@@ -24,7 +28,7 @@
 
   > .row {
     position: relative;
-    z-index: 2;
+    z-index: 3;
   }
 
   .button {
@@ -46,11 +50,31 @@
 }
 
 .hero--sub-articles {
+  background: $body-font-color;
   text-align: right;
+
+  @include breakpoint(medium) {
+    background: transparent;
+    justify-content: flex-end;
+  }
+
+  article {
+    border-top: rem-calc(4) solid $white;
+    padding: $global-padding;
+
+    @include breakpoint(medium) {
+      border-top: 0 none;
+      padding: 0;
+    }
+  }
 
   h5 {
     color: $primary-color;
     text-transform: uppercase;
+  }
+
+  .button {
+    color: $white;
   }
 }
 

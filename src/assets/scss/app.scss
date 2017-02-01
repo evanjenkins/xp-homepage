@@ -3,7 +3,7 @@
 @import 'fonts';
 @import 'settings';
 @import 'foundation';
-@import 'motion-ui';
+//@import 'motion-ui';
 @import 'font-awesome';
 @import 'hamburgers/hamburgers';
 
@@ -50,8 +50,8 @@
 @include foundation-float-classes;
 @include foundation-flex-classes;
 
-@include motion-ui-transitions;
-@include motion-ui-animations;
+//@include motion-ui-transitions;
+//@include motion-ui-animations;
 
 
 ////////////
@@ -74,6 +74,8 @@
 @import 'molecules/social';
 @import 'molecules/footer-dropdown';
 @import 'molecules/closeable';
+@import 'molecules/hamburger';
+@import 'molecules/prize-navigation';
 
 // Organisms
 @import 'organisms/menu';

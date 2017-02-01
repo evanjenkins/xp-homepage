@@ -5,6 +5,10 @@
 blockquote {
   font-size: $cite-font-size;
 
+  @include breakpoint(large) {
+    font-size: rem-calc(20);
+  }
+
   p {
     line-height: 1.2;
   }
@@ -12,4 +16,8 @@ blockquote {
   cite {
     text-align: right;
   }
+}
+
+.inline {
+  display: inline;
 }

@@ -8,32 +8,6 @@
 ///////////////////////////
 .card {
 
-  &.card--collapse-small {
-    @include breakpoint(small only) {
-      > div {
-        padding-left: 0;
-        padding-right: 0;
-      }
-    }
-  }
-
-  &.card--top-bordered {
-    @include psuedo-decorator('before', $body-font-color);
-
-    &:before {
-      margin-top: map_get($section-padding, 'small');
-    }
-  }
-
-  &.card--top-bordered--medium-down {
-    @include breakpoint(large) {
-
-      &:before {
-        display: none;
-      }
-    }
-  }
-
   .button {
 
     &:hover {
@@ -74,18 +48,28 @@
 }
 
 .image-card--content {
-  @include center('both');
-  width: 68%;
+  background-color: $white;
+  padding: rem-calc(10);
+  position: relative;
 
-  //h2 {
-  //  @include breakpoint(large) {
-  //    background: $white;
-  //    color: $black;
-  //    font-size: rem-calc(24);
-  //    -webkit-text-fill-color: transparent;
-  //    -webkit-background-clip: text;
-  //  }
-  //}
+  p {
+    color: $body-font-color;
+    font-weight: bold;
+    margin: 0;
+    text-transform: uppercase;
+
+    @include breakpoint(large) {
+      font-size: rem-calc(14);
+    }
+  }
+
+  .image-card--prize-color {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: rem-calc(5);
+  }
 }
 
 /////////////////////////////////
@@ -97,7 +81,10 @@
 
   .card-divider {
     background: transparent;
-    padding: rem-calc(32);
+
+    @include breakpoint(large) {
+      padding: rem-calc(32);
+    }
 
     @each $size, $headers in $header-styles {
       @each $header, $header-defs in $headers {
@@ -120,7 +107,10 @@
   .card-section {
     background: $background-image-card-content-bg;
     color: $white;
-    padding: rem-calc(32);
+
+    @include breakpoint(large) {
+      padding: rem-calc(32);
+    }
 
     .button {
       color: $white;

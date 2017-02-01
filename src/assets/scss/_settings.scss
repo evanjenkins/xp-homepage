@@ -69,11 +69,12 @@ $button-palette: (
 );
 $light-gray: #efefef;
 $medium-gray: #cacaca;
+$submenu-gray: #eeeeee;
 $gray: #585858;
 $charcoal-gray: #2e2f31;
 $dark-gray: #232426;
 $black: #0a0a0a;
-$white: #fefefe;
+$white: #ffffff;
 $body-background: $white;
 $body-font-color: $dark-gray;
 $body-font-family: FuturaT, 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
@@ -109,7 +110,7 @@ $grid-row-width: $global-width;
 $grid-column-count: 12;
 $grid-column-gutter: (
   small: 65px,
-  medium: 25px,
+  medium: 20px,
 );
 $grid-column-align-edge: true;
 $block-grid-max: 8;
@@ -143,7 +144,7 @@ $header-styles: (
   ),
   large: (
     'h1': ('font-size': 67, 'letter-spacing': 3),
-    'h2': ('font-size': 63, 'letter-spacing': 2),
+    'h2': ('font-size': 58, 'letter-spacing': 2),
     'h3': ('font-size': 44, 'letter-spacing': 1),
     'h4': ('font-size': 25),
     'h5': ('font-size': 20),
@@ -181,7 +182,7 @@ $defnlist-term-margin-bottom: 0.3rem;
 $blockquote-color: $dark-gray;
 $blockquote-padding: rem-calc(9 0 0 0);
 $blockquote-border: 0 0 0 transparent;
-$cite-font-size: rem-calc(28);
+$cite-font-size: rem-calc(24);
 $cite-color: $dark-gray;
 $cite-pseudo-content: '\2014 \0020';
 $keystroke-font: $font-family-monospace;
@@ -672,7 +673,7 @@ $tooltip-radius: $global-radius;
 
 $topbar-padding: 0.5rem 1rem;
 $topbar-background: transparent;
-$topbar-submenu-background: $white;
+$topbar-submenu-background: $light-gray;
 $topbar-title-spacing: 0.5rem 1rem 0.5rem 0;
 $topbar-input-width: 200px;
 $topbar-unstack-breakpoint: medium;

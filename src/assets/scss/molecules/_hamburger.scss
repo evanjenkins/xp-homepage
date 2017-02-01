@@ -1,0 +1,43 @@
+////////////////////////////////////
+// Hamburger styles and animations.
+/////////////////////////////////////
+
+.hamburger {
+  height: rem-calc(54);
+
+  .hamburger-inner,
+  .hamburger-inner:after,
+  .hamburger-inner:before {
+    transition: all .2s ease;
+  }
+
+  &:hover {
+    background-color: transparent;
+    opacity: 1;
+  }
+
+  &.showing-main-menu {
+    background-color: $white;
+    opacity: 1;
+
+    .hamburger-inner,
+    .hamburger-inner:after,
+    .hamburger-inner:before {
+      background-color: $body-font-color;
+    }
+
+    .hamburger-inner {
+      background: transparent;
+
+      &:after {
+        bottom: 0;
+        transform: rotate(225deg);
+      }
+
+      &:before {
+        transform: rotate(-225deg);
+        top: 0;
+      }
+    }
+  }
+}

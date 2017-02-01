@@ -13,24 +13,100 @@
   width: 100%;
   z-index: 3;
 
-  //.top-bar-left {
-  //  flex: 0 0 auto;
-  //}
+  ul ul {
+    background-color: $white;
+  }
+
+  .dropdown {
+    background: $white;
+
+    @include breakpoint(medium down) {
+      display: none;
+      flex-wrap: wrap;
+      margin-top: rem-calc(5);
+      position: absolute;
+      width: 92vw;
+      top: 100%;
+
+      li {
+        border-bottom: 1px solid $submenu-gray;
+        position: relative;
+        flex: 0 0 100%;
+      }
+
+      > li > a {
+        padding: rem-calc(20);
+      }
+    }
+
+    @include breakpoint(large) {
+      background-color: transparent;
+    }
+
+    > li:hover {
+
+      a {
+        @include menu-hover;
+
+        &:hover {
+          color: $primary-color;
+        }
+      }
+    }
+
+    .dropdown-toggler.showing-toggle {
+
+      i {
+        transform: rotate(180deg);
+      }
+
+      &:hover {
+        color: $body-font-color;
+      }
+    }
+
+    .submenu {
+
+      li a {
+        background-color: $submenu-gray;
+
+        @include breakpoint(large) {
+          background-color: $white;
+        }
+      }
+    }
+  }
+
+  .top-bar-right {
+    display: flex;
+    flex: 0 0 50%;
+    justify-content: flex-end;
+    position: relative;
+    
+    @include breakpoint(large) {
+      flex: 0 1 auto;
+    }
+
+    a:not(.hamburger) {
+      color: $body-font-color;
+      font-size: rem-calc(18);
+      font-weight: $header-font-weight;
+      text-transform: uppercase;
+      transition: all .2s ease;
+
+      @include breakpoint(large) {
+        color: $white;
+        font-size: rem-calc(14);
+      }
+
+      &:hover {
+        @include menu-hover;
+      }
+    }
+  }
 
   h1 {
     position: absolute;
-  }
-
-  a {
-    color: $white;
-    font-size: rem-calc(14);
-    font-weight: $header-font-weight;
-    text-transform: uppercase;
-    transition: all .2s ease;
-
-    &:hover {
-      @include menu-hover;
-    }
   }
 
   .is-active {
@@ -39,13 +115,5 @@
       @include menu-hover;
     }
   }
-
-  @include breakpoint(large) {
-    .menu > li {
-
-      > a {
-        margin-bottom: rem-calc(4);
-      }
-    }
-  }
 }
+

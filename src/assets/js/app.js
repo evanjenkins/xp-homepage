@@ -27,10 +27,10 @@ var DisplayFunctions = (function() {
               if (typeof $(self).attr('data-closeable-height') !== 'undefined') {
                 $(self).animate({height: height}, 500, "swing", function () {
                   $(self).css("height", 'auto');
-                  $(button).html('Close X');
+                  $(button).html('Close <i class="fa fa-close"></i>');
                 });
               } else {
-                $(this).html('Close X');
+                $(this).html('Close <i class="fa fa-close"></i>');
               }
             } else {
               if (typeof $(self).attr('data-closeable-height') !== 'undefined') {
@@ -244,13 +244,13 @@ $(document).ready(function() {
       loaded_img_count++;
 
       if (loaded_img_count == $images.length) {
-        DisplayFunctions.closeables(self, "min-width: 1024px");
+        DisplayFunctions.closeables(self, "min-width: 640px");
       }
     });
   });
 
   $('.closeable:not(.closeable--with-images)').each(function() {
-    DisplayFunctions.closeables(this, "min-width: 1024px");
+    DisplayFunctions.closeables(this, "min-width: 640px");
   });
 });
 
@@ -259,6 +259,6 @@ $(window).on("resize", function(){
   "use strict";
 
   $('.closeable').each(function() {
-    DisplayFunctions.closeables(this, "min-width: 1024px");
+    DisplayFunctions.closeables(this, "min-width: 640px");
   });
 });

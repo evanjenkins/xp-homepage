@@ -26,15 +26,52 @@
   }
 
   ul {
+    flex-wrap: wrap;
     list-style: none;
     margin: 0 auto;
+
+    li {
+      flex: 0 0 100%;
+    }
+
+    @include breakpoint(large) {
+      a {
+        line-height: 1.2;
+        padding: rem-calc(5 0);
+      }
+    }
   }
 
   .column {
 
     > a,
     strong {
+      font-weight: bold;
       text-transform: uppercase;
+    }
+  }
+
+  li {
+    position: relative;
+  }
+
+  @include breakpoint(medium down) {
+    a {
+      display: block;
+      padding-bottom: $global-padding;
+      padding-left: map_get($grid-column-gutter, 'small') / 2;
+      padding-right: map_get($grid-column-gutter, 'small') / 2;
+      padding-top: $global-padding;
+    }
+  }
+
+  .dropdown-toggler {
+    color: $gray;
+
+    & + ul {
+      background-color: #2e2f31;
+      display: none;
+      overflow: hidden;
     }
   }
 }
@@ -63,22 +100,24 @@
   li {
     display: inline-block;
 
+    a {
+      display: inline-block;
+    }
+
     &:after {
       background-color: #fefefe;
       content: '';
       display: inline-block;
       height: 14px;
-      margin: 0 10px;
       vertical-align: middle;
       width: 1px;
-    }
 
-    &:last-child:after {
-      display: none;
+      @include breakpoint(medium) {
+        margin: rem-calc(0 10);
+      }
     }
   }
 }
-
 
 .mobile-footer {
 
@@ -89,12 +128,60 @@
   a {
     display: block;
     padding-bottom: $global-padding;
-    padding-left: map_get($grid-column-gutter, 'small') / 2;
-    padding-right: map_get($grid-column-gutter, 'small') / 2;
+    padding-left: map_get($grid-column-gutter, 'small');
+    padding-right: map_get($grid-column-gutter, 'small');
     padding-top: $global-padding;
+
+    @include breakpoint(medium only) {
+      padding-left: map_get($grid-column-gutter, 'medium');
+      padding-right: map_get($grid-column-gutter, 'medium');
+    }
   }
 
   .dropdown-toggler {
     color: $gray;
+  }
+}
+
+// Drupal
+
+.pane-footer-legal-section {
+
+  .panel-panel-inner {
+
+    @include breakpoint(medium) {
+      align-content: center;
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  p {
+    margin-bottom: 0;
+    padding: rem-calc(10);
+  }
+
+  .panel-panel {
+    margin: 0 auto;
+  }
+}
+
+.footer-section--legal__copyright {
+  align-items: center;
+  display: flex;
+}
+
+.menu-name-footer-menu {
+
+  .column {
+    flex: 1 0 100%;
+    padding: 0;
+    position: relative;
+
+    @include breakpoint(large) {
+      flex: 1 1 0px;
+      padding-left: map_get($grid-column-gutter, 'medium');
+      padding-right: map_get($grid-column-gutter, 'medium');
+    }
   }
 }

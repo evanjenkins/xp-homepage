@@ -39,3 +39,17 @@
   }
 }
 
+.primary-button {
+  background-color: $primary-color;
+  color: $body-font-color;
+  font-family: $button-font-family;
+  font-weight: $button-font-weight;
+  text-transform: uppercase;
+  transition: all .2s ease;
+
+  &:hover {
+    background-color: darken($primary-color, 10%);
+    color: $body-font-color;
+  }
+}
+

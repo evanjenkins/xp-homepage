@@ -49,5 +49,19 @@
   img {
     padding-left: $card-padding;
     padding-right: $card-padding;
+
+    @include breakpoint(large) {
+      padding-left: $card-padding / 2;
+      padding-right: $card-padding / 2;
+    }
+  }
+
+  .card-divider,
+  .card-section {
+
+    @include breakpoint(large) {
+      padding-left: $card-padding / 2;
+      padding-right: $card-padding / 2;
+    }
   }
 }

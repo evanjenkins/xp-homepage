@@ -17,6 +17,10 @@ h3 {
   text-transform: none;
 }
 
+.uppercase {
+  text-transform: uppercase;
+}
+
 // Heading styles
 @each $size, $headers in $header-styles {
   @include breakpoint($size) {
@@ -66,7 +70,12 @@ h3 {
   display: inline-block;
 
   &:after {
-    background-color: $primary-color;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#00ff52+25,e39524+25,e39524+50,00d0fa+50,00d0fa+75,ee2236+75 */
+    background: #00ff52; /* Old browsers */
+    background: -moz-linear-gradient(left,  #00ff52 25%, #e39524 25%, #e39524 50%, #00d0fa 50%, #00d0fa 75%, #ee2236 75%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left,  #00ff52 25%,#e39524 25%,#e39524 50%,#00d0fa 50%,#00d0fa 75%,#ee2236 75%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right,  #00ff52 25%,#e39524 25%,#e39524 50%,#00d0fa 50%,#00d0fa 75%,#ee2236 75%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ff52', endColorstr='#ee2236',GradientType=1 ); /* IE6-9 */
     content: '';
     display: block;
     height: rem-calc(6);
@@ -90,11 +99,10 @@ h3 {
   }
 
 
-
   &.secondary {
 
     &:after {
-      background-color: $body-font-color;
+      background: $body-font-color;
     }
   }
 
