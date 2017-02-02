@@ -28,6 +28,10 @@
     margin-bottom: map_get($grid-column-gutter, 'medium');
   }
 
+  @include breakpoint(large) {
+    margin-bottom: map_get($grid-column-gutter, 'large');
+  }
+
   a {
     color: $white;
     display: block;
