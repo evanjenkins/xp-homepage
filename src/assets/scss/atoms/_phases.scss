@@ -1,0 +1,24 @@
+//////////////////////////////
+// Phase colors
+/////////////////////////////
+$ready: #00ff52;
+$registration: #e39524;
+$solution: #00d0fa;
+$testing: #ee2236;
+
+.phase--registration {
+  background-color: $registration;
+}
+
+.phase--testing {
+  background-color: $testing;
+}
+
+.phase--solution {
+  background-color: $solution;
+}
+
+.phase--ready {
+  background-color: $ready;
+}
+

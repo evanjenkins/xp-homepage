@@ -24,29 +24,24 @@
   &.closeable {
     position: relative;
     overflow: hidden;
-
-    @include breakpoint(medium) {
-      padding-bottom: rem-calc(175);
-    }
+    padding-bottom: rem-calc(175);
 
     .closeable--button {
       @include center('x');
       bottom: rem-calc(32);
       position: absolute;
       z-index: 3;
+      white-space: nowrap;
     }
 
-    @include breakpoint(medium) {
-
-      &:after {
-        background: linear-gradient(transparent, $black);
-        bottom: 0;
-        content: '';
-        display: block;
-        position: absolute;
-        height: rem-calc(200);
-        width: 100%;
-      }
+    &:after {
+      background: linear-gradient(transparent, $black);
+      bottom: 0;
+      content: '';
+      display: block;
+      position: absolute;
+      height: rem-calc(50);
+      width: 100%;
     }
 
     &.closeable--open {

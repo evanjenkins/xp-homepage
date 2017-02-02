@@ -14,6 +14,7 @@
 
 .submenu {
   //column-count: 2;
+  align-items: flex-start;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -22,22 +23,42 @@
     background-color: $white;
   }
 
+  // Prototype only
   &.js-dropdown-active {
-     display: flex;
-     //flex-direction: column;
-     flex-wrap: wrap;
+    display: flex;
+    //flex-direction: column;
+    flex-wrap: wrap;
 
-     li {
-       flex: 1 0 300px;
-       max-width: 50%;
-     }
-   }
+    .col {
+      flex: 0 0 100%;
+      max-width: 100%;
+
+      @include breakpoint(large) {
+        flex: 0 0 50%;
+        max-width: 50%;
+      }
+    }
+  }
+
+  .col {
+    flex: 0 0 100%;
+    max-width: 100%;
+
+    @include breakpoint(large) {
+      flex: 0 0 50%;
+    }
+  }
 
   a {
     color: $dark-gray;
     display: block;
     padding-bottom: rem-calc(8);
     padding-top: rem-calc(8);
+
+    @include breakpoint(large) {
+      padding-left: rem-calc(20);
+      padding-right: rem-calc(20);
+    }
   }
 
   .menu {
@@ -66,9 +87,9 @@
     display: none;
     left: initial;
     top: 110%;
-    position: static;
     margin: 0;
     list-style: none;
+    position: static;
 
     @include breakpoint(large) {
       display: block;
@@ -79,8 +100,13 @@
       background-color: transparent;
     }
 
+    a {
+      padding: rem-calc(10 20);
+    }
+
     .col-md-12 {
       padding: 0;
+      width: 100%;
     }
   }
 }

@@ -3,17 +3,10 @@
 //////////////////////
 
 .closeable--closed {
-  display: none;
-
-  @include breakpoint(large) {
-    display: block;
-  }
+  display: block;
 }
 
 .closeable--expanded {
-
-  @include breakpoint(large) {
-    display: none;
-  }
+  display: none;
 }
 

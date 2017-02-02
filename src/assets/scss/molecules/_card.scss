@@ -21,15 +21,24 @@
 ///////////////////////////
 .image-card {
   margin-bottom: map_get($grid-column-gutter, 'small') / 2;
+  overflow: hidden;
+  position: relative;
 
   @include breakpoint(medium) {
     margin-bottom: map_get($grid-column-gutter, 'medium');
   }
 
-  position: relative;
-
   a {
     color: $white;
+    display: block;
+    height: 100%;
+  }
+
+  &:hover {
+
+    .image-card--hover-content {
+      opacity: 1;
+    }
   }
 
   //&:last-child {
@@ -44,6 +53,21 @@
 
   img {
     width: 100%;
+  }
+}
+
+%image-card--overlay {
+  margin-left: 0;
+  margin-right: map_get($grid-column-gutter, 'small') / 2;
+
+  @include breakpoint(medium) {
+    margin-left: 0;
+    margin-right: map_get($grid-column-gutter, 'medium') / 2;
+  }
+
+  @include breakpoint(large) {
+    margin-left: 0;
+    margin-right: map_get($grid-column-gutter, 'large') / 2;
   }
 }
 
@@ -62,7 +86,7 @@
   p {
     font-weight: bold;
     color: $white;
-    font-size: rem-calc(55);
+    font-size: rem-calc(40);
     line-height: 1;
     margin: 0;
     text-transform: uppercase;
@@ -95,6 +119,36 @@
     position: absolute;
     top: 0;
     width: rem-calc(5);
+  }
+}
+
+.row.image-card--hover-content {
+  @extend %image-card--overlay;
+  position: absolute;
+  //opacity: 0;
+  height: 100%;
+  opacity: 0;
+  top: 0;
+  transition: all .2s ease;
+
+  .primary-background {
+    display: flex;
+    align-items: flex-end;
+    text-transform: uppercase;
+    height: 50%;
+
+    h5 {
+      line-height: 1.2;
+
+      @include breakpoint(small only) {
+        font-size: rem-calc(30);
+      }
+    }
+  }
+
+  .white-bg {
+    height: 50%;
+    padding: $global-padding;
   }
 }
 

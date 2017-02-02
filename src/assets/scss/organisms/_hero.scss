@@ -29,6 +29,14 @@
   > .row {
     position: relative;
     z-index: 2;
+
+    > div {
+      margin-bottom: rem-calc(20);
+
+      @include breakpoint(medium) {
+        margin-bottom: 0;
+      }
+    }
   }
 
   .button {

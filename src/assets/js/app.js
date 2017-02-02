@@ -245,7 +245,7 @@
     "use strict";
 
     $('.closeable').each(function() {
-      DisplayFunctions.closeables(this, "min-width: 1024px");
+      DisplayFunctions.closeables(this, "min-width: 0px");
     });
   });
 
@@ -261,13 +261,13 @@
         loaded_img_count++;
 
         if (loaded_img_count == $images.length) {
-          DisplayFunctions.closeables(self, "min-width: 640px");
+          DisplayFunctions.closeables(self, "min-width: 0px");
         }
       });
     });
 
     $('.closeable:not(.closeable--with-images)').each(function() {
-      DisplayFunctions.closeables(this, "min-width: 640px");
+      DisplayFunctions.closeables(this, "min-width: 0px");
     });
   });
 

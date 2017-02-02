@@ -17,6 +17,10 @@
     text-transform: none;
   }
 
+  .col {
+    flex: 0 0 100%;
+  }
+
   a {
     color: $white;
 
@@ -32,6 +36,10 @@
 
     li {
       flex: 0 0 100%;
+
+      @include breakpoint(medium) {
+        flex: 0 0 auto;
+      }
     }
 
     @include breakpoint(large) {
@@ -72,6 +80,11 @@
       background-color: #2e2f31;
       display: none;
       overflow: hidden;
+
+      @include breakpoint(large) {
+        background-color: transparent;
+        display: block;
+      }
     }
   }
 }
@@ -154,11 +167,19 @@
       display: flex;
       justify-content: center;
     }
+
+    li {
+      flex: 0 0 auto;
+    }
   }
 
   p {
     margin-bottom: 0;
     padding: rem-calc(10);
+
+    @include breakpoint(medium) {
+      padding: rem-calc(4 5);
+    }
   }
 
   .panel-panel {
@@ -180,8 +201,8 @@
 
     @include breakpoint(large) {
       flex: 1 1 0px;
-      padding-left: map_get($grid-column-gutter, 'medium');
-      padding-right: map_get($grid-column-gutter, 'medium');
+      padding-left: map_get($grid-column-gutter, 'medium') / 2;
+      padding-right: map_get($grid-column-gutter, 'medium') / 2;
     }
   }
 }

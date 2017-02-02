@@ -21,3 +21,15 @@ blockquote {
 .inline {
   display: inline;
 }
+
+.primary-background {
+  background-color: $primary-color;
+
+  > * {
+    color: $body-font-color;
+  }
+}
+
+.white-bg {
+  background-color: $white;
+}

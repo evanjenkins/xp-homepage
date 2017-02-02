@@ -86,7 +86,7 @@
     flex: 0 0 50%;
     justify-content: flex-end;
     position: relative;
-    
+
     @include breakpoint(large) {
       flex: 0 1 auto;
     }
