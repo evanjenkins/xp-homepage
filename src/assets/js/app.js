@@ -26,7 +26,7 @@
               if (!$(self).hasClass('closeable--open')) {
 
                 if (typeof $(self).attr('data-closeable-height') !== 'undefined') {
-                  $(self).animate({height: height}, 500, "swing", function () {
+                  $(self).animate({height: height}, 300, "swing", function () {
                     $(self).css("height", 'auto');
                     $(button).html('Close <i class="fa fa-close"></i>');
                   });
@@ -35,13 +35,16 @@
                 }
               } else {
                 if (typeof $(self).attr('data-closeable-height') !== 'undefined') {
-                  $(self).animate({height: $(this).attr('data-closeable-height') + 'px'}, 500, "swing", function () {
-                    $(self).css("height", $(this).attr('data-closeable-height') + 'px');
+                  $(self).animate({height: $(self).attr('data-closeable-height') + 'px'}, 300, "swing", function () {
+                    $(self).css("height", $(self).attr('data-closeable-height') + 'px');
                     $(button).html($(self).data('button-text'));
                   });
                 } else {
                   $(this).html($(self).data('button-text'));
                 }
+                $("html,body").animate({
+                  scrollTop: $(self).offset().top - 50
+                }, 300, function() {});
               }
               $(self).toggleClass('closeable--open');
               $(self).find('.closeable--closed').toggle();
