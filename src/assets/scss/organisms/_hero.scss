@@ -89,6 +89,7 @@
 
 
 .hero--see-more {
+  @include center('x');
   bottom: rem-calc(16);
   position: absolute;
   text-align: center;
