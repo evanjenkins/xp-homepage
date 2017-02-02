@@ -39,6 +39,10 @@
       }
     }
 
+    @include breakpoint(medium only) {
+      width: 95vw;
+    }
+
     @include breakpoint(large) {
       background-color: transparent;
     }

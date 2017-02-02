@@ -2,6 +2,16 @@
 // Submenu organism
 /////////////////////
 
+.dropdown-toggler {
+
+  &.showing-toggle {
+
+    i {
+      transform: rotate(180deg);
+    }
+  }
+}
+
 .submenu {
   //column-count: 2;
   list-style: none;
@@ -32,8 +42,11 @@
 
   .menu {
     flex-wrap: wrap;
-    max-width: rem-calc(420);
     padding: 0;
+
+    @include breakpoint(large) {
+      max-width: rem-calc(420);
+    }
 
     > li {
       flex: 0 0 100%;
@@ -54,6 +67,8 @@
     left: initial;
     top: 110%;
     position: static;
+    margin: 0;
+    list-style: none;
 
     @include breakpoint(large) {
       display: block;
