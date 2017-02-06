@@ -4,6 +4,7 @@
 @mixin menu-hover {
   color: $dark-gray;
   background-color: $white;
+  position: relative;
 }
 
 .top-bar {
@@ -33,6 +34,7 @@
         border-bottom: 1px solid $submenu-gray;
         position: relative;
         flex: 0 0 100%;
+        overflow: hidden;
       }
 
       > li > a {
@@ -54,7 +56,10 @@
         @include menu-hover;
 
         &:hover {
-          color: $primary-color;
+
+          &:after {
+            background-color: $primary-color;
+          }
         }
       }
     }
@@ -94,6 +99,7 @@
 
     a:not(.hamburger) {
       color: $body-font-color;
+      display: block;
       font-size: rem-calc(18);
       font-weight: $header-font-weight;
       text-transform: uppercase;
@@ -102,6 +108,19 @@
       @include breakpoint(large) {
         color: $white;
         font-size: rem-calc(14);
+
+        &:after {
+          bottom: 0;
+          content: '';
+          display: block;
+          height: rem-calc(4);
+          width: 100%;
+          top: auto;
+          right: auto;
+          margin: 0;
+          position: relative;
+          transition: all .2s ease;
+        }
       }
 
       &:hover {

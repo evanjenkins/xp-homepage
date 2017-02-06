@@ -128,9 +128,9 @@ $header-lineheight: .9;
 $header-margin-bottom: 1rem;
 $header-styles: (
   small: (
-    'h1': ('font-size': 34, 'letter-spacing': 3),
+    'h1': ('font-size': 38, 'letter-spacing': 3),
     'h2': ('font-size': 36, 'letter-spacing': 1),
-    'h3': ('font-size': 30, 'letter-spacing': 1),
+    'h3': ('font-size': 34, 'letter-spacing': 1),
     'h4': ('font-size': 18),
     'h5': ('font-size': 17),
     'h6': ('font-size': 16),
@@ -138,15 +138,15 @@ $header-styles: (
   medium: (
     'h1': ('font-size': 52, 'letter-spacing': 3),
     'h2': ('font-size': 48, 'letter-spacing': 2),
-    'h3': ('font-size': 40, 'letter-spacing': 1),
+    'h3': ('font-size': 44, 'letter-spacing': 1),
     'h4': ('font-size': 25),
     'h5': ('font-size': 20),
     'h6': ('font-size': 16),
   ),
   large: (
-    'h1': ('font-size': 67, 'letter-spacing': 3),
+    'h1': ('font-size': 68, 'letter-spacing': 3),
     'h2': ('font-size': 58, 'letter-spacing': 2),
-    'h3': ('font-size': 44, 'letter-spacing': 1),
+    'h3': ('font-size': 52, 'letter-spacing': 1),
     'h4': ('font-size': 25),
     'h5': ('font-size': 20),
     'h6': ('font-size': 16),
@@ -296,8 +296,10 @@ $button-padding: 0.55em 1.25em;
 $secondary-button-padding: 1em 2em;
 $button-margin: 0 0 $global-margin 0;
 $button-fill: solid;
-$button-background: $white;
-$button-background-hover: scale-color($button-background, $lightness: -15%);
+//$button-background: $white;
+$button-background: transparent;
+//$button-background-hover: scale-color($button-background, $lightness: -15%);
+$button-background-hover: $button-background;
 $button-color: $dark-gray;
 $button-color-alt: $black;
 $button-radius: $global-radius;
@@ -335,7 +337,7 @@ $callout-background: $white;
 $callout-background-fade: 85%;
 $callout-border: 0 0 0 transparent;
 $callout-margin: 0 0 1rem 0;
-$callout-padding: 1rem;
+$callout-padding: 1.5rem;
 $callout-font-color: $body-font-color;
 $callout-font-color-alt: $body-background;
 $callout-radius: $global-radius;

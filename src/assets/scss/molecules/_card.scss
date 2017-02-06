@@ -6,7 +6,68 @@
 ///////////////////////////
 // Basic card overrides
 ///////////////////////////
+%card-margin {
+  margin-bottom: map_get($grid-column-gutter, 'small') / 2;
+
+  @include breakpoint(medium) {
+    margin-bottom: map_get($grid-column-gutter, 'medium');
+  }
+
+  @include breakpoint(large) {
+    margin-bottom: map_get($grid-column-gutter, 'large');
+  }
+}
+
+@mixin card-spacing($padding: 'all') {
+  @if $padding == 'all' {
+    @include breakpoint(small only) {
+      padding: map_get($grid-column-gutter, 'small') / 2;
+    }
+
+    @include breakpoint(medium only) {
+      padding: map_get($grid-column-gutter, 'medium') / 2;
+    }
+  }
+  @else if $padding == 'left' or $padding == 'right' {
+    @include breakpoint(small only) {
+      padding-#{$padding}: map_get($grid-column-gutter, 'small') / 2;
+    }
+
+    @include breakpoint(medium) {
+      padding-#{$padding}: map_get($grid-column-gutter, 'medium') / 2;
+    }
+  }
+  @else if $padding == 'sides' {
+    @include breakpoint(small only) {
+      padding-left: map_get($grid-column-gutter, 'small') / 2;
+      padding-right: map_get($grid-column-gutter, 'small') / 2;
+    }
+
+    @include breakpoint(medium only) {
+      padding-left: map_get($grid-column-gutter, 'medium') / 2;
+      padding-right: map_get($grid-column-gutter, 'medium') / 2;
+    }
+  }
+}
+
+
 .card {
+  @extend %card-margin;
+  position: relative;
+
+  .card-divider,
+  .card-section {
+    @include card-spacing;
+  }
+
+  > img {
+    @include card-spacing('sides');
+
+    @include breakpoint(large) {
+      padding-left: $card-padding;
+      padding-right: $card-padding;
+    }
+  }
 
   .button {
 
@@ -20,17 +81,9 @@
 // Image card
 ///////////////////////////
 .image-card {
-  margin-bottom: map_get($grid-column-gutter, 'small') / 2;
   overflow: hidden;
   position: relative;
-
-  @include breakpoint(medium) {
-    margin-bottom: map_get($grid-column-gutter, 'medium');
-  }
-
-  @include breakpoint(large) {
-    margin-bottom: map_get($grid-column-gutter, 'large');
-  }
+  @extend %card-margin;
 
   a {
     color: $white;
@@ -44,16 +97,6 @@
       opacity: 1;
     }
   }
-
-  //&:last-child {
-  //  $margin: rem-calc($-zf-bp-value);
-  //
-  //  margin-bottom: $margin;
-  //
-  //  @include breakpoint(medium) {
-  //    margin-bottom: map_get($grid-column-gutter, 'medium');
-  //  }
-  //}
 
   img {
     width: 100%;
@@ -135,19 +178,30 @@
   top: 0;
   transition: all .2s ease;
 
+  h5 {
+    font-size: rem-calc(40);
+    line-height: 1;
+    margin: 0;
+
+    @include breakpoint(large) {
+      font-size: rem-calc(30);
+    }
+  }
+
+
   .primary-background {
     display: flex;
     align-items: flex-end;
     text-transform: uppercase;
     height: 50%;
 
-    h5 {
-      line-height: 1.2;
-
-      @include breakpoint(small only) {
-        font-size: rem-calc(30);
-      }
-    }
+    //h5 {
+    //  line-height: 1.2;
+    //
+    //  @include breakpoint(small only) {
+    //    font-size: rem-calc(30);
+    //  }
+    //}
   }
 
   .white-bg {
@@ -166,9 +220,9 @@
   .card-divider {
     background: transparent;
 
-    @include breakpoint(large) {
-      padding: rem-calc(32);
-    }
+    //@include breakpoint(large) {
+    //  padding: $card-padding;
+    //}
 
     @each $size, $headers in $header-styles {
       @each $header, $header-defs in $headers {
@@ -192,12 +246,28 @@
     background: $background-image-card-content-bg;
     color: $white;
 
-    @include breakpoint(large) {
-      padding: rem-calc(32);
-    }
+    //@include breakpoint(large) {
+    //  padding: rem-calc(32);
+    //}
 
     .button {
       color: $white;
     }
   }
+}
+
+.card-section {
+  
+  a {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+.card--full-click {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
 }

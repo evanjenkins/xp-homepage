@@ -13,6 +13,14 @@
 
   &:not(.secondary) {
     @include psuedo-decorator;
+
+    &:after {
+      transition: all .2s ease;
+    }
+
+    &:hover:after {
+      background-color: $body-font-color;
+    }
   }
 
   &.secondary {

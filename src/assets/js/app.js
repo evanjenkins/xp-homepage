@@ -51,10 +51,18 @@
               $(self).find('.closeable--expanded').toggle();
               return false;
             });
+          }
 
-            if (typeof $(this).attr('data-closeable-height') !== 'undefined') {
-              $(this).css('height', $(this).attr('data-closeable-height') + 'px');
+          if (typeof $(this).attr('data-closeable-height') !== 'undefined') {
+            var heights = $(this).attr('data-closeable-height').split(',');
+            if (window.matchMedia("(max-width: 640px)").matches) {
+              $(this).css('height', heights[0] + 'px');
+            } else if (window.matchMedia("(max-width: 1024px)").matches) {
+              $(this).css('height', heights[1] + 'px');
+            } else {
+              $(this).css('height', heights[2] + 'px');
             }
+            // $(this).css('height', (imgHeight * 2.5) + 'px');
           }
         });
       }
@@ -212,6 +220,33 @@
       });
     };
 
+    // Holds all of the column containers so that they can be removed if necessary.
+    var containers = [];
+    /**
+     * Groups children and applies column class
+     * @param  varchar element [the parent element]
+     * @param  init    numCols [number of columns]
+     */
+    var columnCount = function (element, numCols, wrap) {
+      var container;
+      $(element).each(function () {
+        var i = 0;
+        var colCount = Math.ceil($(this).children().length / numCols);
+        if($(this).find($(element).children()).length === 1) { return; }
+        $(this).find($(element).children()).each(function () {
+          if (i % colCount === 0) {
+            if(element === ".team-about__team-members") {
+              container = $("<" + wrap + " class=\"col\" start=\"" + (i + 1) + "\"></" + wrap + ">").appendTo($(this).parent());
+            } else {
+              container = $("<" + wrap + " class=\"col\"></" + wrap + ">").appendTo($(this).parent());
+            }
+          }
+          containers.push($(this).appendTo(container));
+          i++;
+        });
+      });
+    };
+
     /**
      * Initialize the page.
      */
@@ -219,9 +254,11 @@
       // Init
       initFoundation();
       hamburgerDropdown('.hamburger');
+      // Split the menu dropdowns into two columns
+      // Taken from imagine, needs to be somewhere else.
+      columnCount(".submenu > .menu", 2, "div");
       customDropdown($(".dropdown a.dropdown-toggler"));
       customDropdown($(".footer-top a.dropdown-toggler"));
-      customDropdown($(".mobile-footer a.dropdown-toggler"));
       // toggleChevron(".xprize-custom-dropdown a.show-for-small");
       // Needed to do a custom smooth scroll. The magellan nav
       // couldn't have 2 offsets.

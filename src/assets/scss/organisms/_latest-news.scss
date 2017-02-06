@@ -46,22 +46,31 @@
     }
   }
 
-  img {
-    padding-left: $card-padding;
-    padding-right: $card-padding;
+  //img {
+  //  padding-left: $card-padding;
+  //  padding-right: $card-padding;
+  //
+  //  @include breakpoint(large) {
+  //    padding-left: $card-padding / 2;
+  //    padding-right: $card-padding / 2;
+  //  }
+  //}
 
-    @include breakpoint(large) {
-      padding-left: $card-padding / 2;
-      padding-right: $card-padding / 2;
-    }
-  }
+  //.card-divider,
+  //.card-section {
+  //
+  //  @include breakpoint(large) {
+  //    padding-left: $card-padding / 2;
+  //    padding-right: $card-padding / 2;
+  //  }
+  //}
+}
 
-  .card-divider,
-  .card-section {
+.latest-news--main {
 
-    @include breakpoint(large) {
-      padding-left: $card-padding / 2;
-      padding-right: $card-padding / 2;
+  @include breakpoint(medium only) {
+    > .card {
+      min-height: rem-calc(500);
     }
   }
 }
