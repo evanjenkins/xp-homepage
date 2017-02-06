@@ -35,10 +35,23 @@
                 }
               } else {
                 if (typeof $(self).attr('data-closeable-height') !== 'undefined') {
-                  $(self).animate({height: $(self).attr('data-closeable-height') + 'px'}, 300, "swing", function () {
-                    $(self).css("height", $(self).attr('data-closeable-height') + 'px');
-                    $(button).html($(self).data('button-text'));
-                  });
+                  var heights = $(self).attr('data-closeable-height').split(',');
+                  if (window.matchMedia("(max-width: 640px)").matches) {
+                    $(self).animate({height: heights[0] + 'px'}, 300, "swing", function () {
+                      $(self).css("height", heights[0] + 'px');
+                      $(button).html($(self).data('button-text'));
+                    });
+                  } else if (window.matchMedia("(max-width: 1024px)").matches) {
+                    $(self).animate({height: heights[1] + 'px'}, 300, "swing", function () {
+                      $(self).css("height", heights[1] + 'px');
+                      $(button).html($(self).data('button-text'));
+                    });
+                  } else {
+                    $(self).animate({height: heights[2] + 'px'}, 300, "swing", function () {
+                      $(self).css("height", heights[2] + 'px');
+                      $(button).html($(self).data('button-text'));
+                    });
+                  }
                 } else {
                   $(this).html($(self).data('button-text'));
                 }
@@ -51,19 +64,20 @@
               $(self).find('.closeable--expanded').toggle();
               return false;
             });
+
+            if (typeof $(this).attr('data-closeable-height') !== 'undefined') {
+              var heights = $(this).attr('data-closeable-height').split(',');
+              if (window.matchMedia("(max-width: 640px)").matches) {
+                $(this).css('height', heights[0] + 'px');
+              } else if (window.matchMedia("(max-width: 1024px)").matches) {
+                $(this).css('height', heights[1] + 'px');
+              } else {
+                $(this).css('height', heights[2] + 'px');
+              }
+              // $(this).css('height', (imgHeight * 2.5) + 'px');
+            }
           }
 
-          if (typeof $(this).attr('data-closeable-height') !== 'undefined') {
-            var heights = $(this).attr('data-closeable-height').split(',');
-            if (window.matchMedia("(max-width: 640px)").matches) {
-              $(this).css('height', heights[0] + 'px');
-            } else if (window.matchMedia("(max-width: 1024px)").matches) {
-              $(this).css('height', heights[1] + 'px');
-            } else {
-              $(this).css('height', heights[2] + 'px');
-            }
-            // $(this).css('height', (imgHeight * 2.5) + 'px');
-          }
         });
       }
       else {
