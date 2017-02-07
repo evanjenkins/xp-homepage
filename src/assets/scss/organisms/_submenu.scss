@@ -23,6 +23,14 @@
     background-color: $white;
   }
 
+  &.is-dropdown-submenu {
+    min-width: auto;
+
+    @include breakpoint(large) {
+      min-width: $dropdownmenu-min-width;
+    }
+  }
+
   // Prototype only
   &.js-dropdown-active {
     display: flex;
@@ -102,7 +110,11 @@
     }
 
     a {
-      padding: rem-calc(10 20);
+      padding: rem-calc(10 20 5);
+
+      @include breakpoint(large) {
+        padding: rem-calc(10 20);
+      }
     }
 
     .col-md-12 {

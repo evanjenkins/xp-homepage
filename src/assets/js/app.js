@@ -116,7 +116,7 @@
      *  The selector from the item that is clicked for which element to show.
      */
     var createToggle = function(trigger) {
-      var $toggle = $(trigger).siblings('ul');
+      var $toggle = $(trigger).siblings('ul:not(.show-for-large)');
       var height;
 
       if ($toggle.data("height")) {
@@ -128,7 +128,7 @@
       }
 
       trigger.toggleClass("showing-toggle");
-      trigger.parents(".xprize-custom-dropdown").toggleClass("showing-toggle");
+      trigger.parents(".xprize-custom-dropdown, .is-dropdown-submenu-parent").toggleClass("showing-toggle");
       $toggle.toggleClass("showing-toggle-nav");
 
       if ($toggle.hasClass("showing-toggle-nav")) {
@@ -140,7 +140,7 @@
       else {
         $toggle.animate({height: 0}, 500, "swing", function() {
           $toggle.toggle();
-          $toggle.css("height", "auto");
+          $toggle.css("height", 0);
         });
       }
     };
@@ -261,6 +261,19 @@
       });
     };
 
+    var scrollToBottomOfDiv = function(link, div) {
+      var $link = $(link),
+          $div  = $(div);
+
+      $link.on('click', function(e) {
+        var scrollHeight = $(div)[0].scrollHeight;
+        $("html,body").animate({
+          scrollTop: scrollHeight
+        }, 1000);
+        return false;
+      })
+    };
+
     /**
      * Initialize the page.
      */
@@ -273,11 +286,13 @@
       columnCount(".submenu > .menu", 2, "div");
       customDropdown($(".dropdown a.dropdown-toggler"));
       customDropdown($(".footer-top a.dropdown-toggler"));
+      // Prototype specific
+      customDropdown($(".mobile-footer a.dropdown-toggler"));
       // toggleChevron(".xprize-custom-dropdown a.show-for-small");
       // Needed to do a custom smooth scroll. The magellan nav
       // couldn't have 2 offsets.
       customSmoothScroll("#mobile-links a");
-
+      scrollToBottomOfDiv('.hero-scroller', '.hero-outer');
       bindSliderClickMobile(".orbit-slider-buttons a", ".orbit-container-wrapper", "max-width: 40em");
       stickyMobile(".sticky-mobile");
       bindSearchBox("#search-box", "#search-submit", "http://xprize.org/search/node/");

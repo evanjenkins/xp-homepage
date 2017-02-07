@@ -179,13 +179,9 @@
   transition: all .2s ease;
 
   h5 {
-    font-size: rem-calc(40);
+    font-size: rem-calc(30);
     line-height: 1;
     margin: 0;
-
-    @include breakpoint(large) {
-      font-size: rem-calc(30);
-    }
   }
 
 

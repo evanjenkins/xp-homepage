@@ -12,6 +12,7 @@
   background-position: center;
   display: flex;
   height: 65vh;
+  min-height: rem-calc(450);
   max-height: rem-calc(520);
   padding-bottom: rem-calc(45);
   padding-top: $topbar-height;
@@ -72,7 +73,7 @@
     border-top: rem-calc(4) solid $white;
     padding: $global-padding;
 
-    @include breakpoint(medium) {
+    @include breakpoint(large) {
       border-top: 0 none;
       padding: 0;
     }
@@ -99,13 +100,13 @@
 
   a {
     color: $white;
+    display: block;
     font-weight: bold;
     letter-spacing: 2px;
     text-transform: uppercase;
 
     @include breakpoint(medium) {
       font-size: rem-calc(10);
-      line-height: .6;
     }
 
     &:before {
