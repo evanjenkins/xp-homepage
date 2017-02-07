@@ -4,6 +4,8 @@
 .hero-outer {
   background-color: $black;
   position: relative;
+
+
   overflow: hidden;
 }
 
@@ -57,6 +59,14 @@
 .hero--main-article {
   h3 {
     color: $white;
+
+    a {
+      color: $white;
+    }
+
+    @include breakpoint(large only) {
+      font-size: 4vw;
+    }
   }
 }
 
