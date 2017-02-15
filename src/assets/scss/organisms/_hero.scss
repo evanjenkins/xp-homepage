@@ -4,9 +4,18 @@
 .hero-outer {
   background-color: $black;
   position: relative;
-
-
   overflow: hidden;
+
+  .video-js {
+    min-height: 100%;
+    min-width: 100%;
+    position: absolute;
+    top: 0;
+  }
+
+  video {
+    object-fit: cover;
+  }
 }
 
 .hero {
@@ -16,6 +25,7 @@
   height: 65vh;
   min-height: rem-calc(450);
   max-height: rem-calc(520);
+  overflow: hidden;
   padding-bottom: rem-calc(45);
   padding-top: $topbar-height;
   position: relative;
@@ -35,6 +45,14 @@
     position: relative;
     z-index: 2;
 
+
+    /// New
+    //position: absolute;
+    //left: 50%;
+    //bottom: rem-calc(50);
+    //transform: translateX(-50%);
+    //width: 100%;
+
     > div {
       margin-bottom: rem-calc(20);
 
@@ -50,6 +68,11 @@
 }
 
 .hero--wrapper {
+
+  &:before,
+  &:after {
+    display: none;
+  }
 
   @include breakpoint(large) {
     align-items: flex-end;

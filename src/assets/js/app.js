@@ -60,6 +60,7 @@
                 }, 300, function() {});
               }
               $(self).toggleClass('closeable--open');
+
               $(self).find('.closeable--closed').toggle();
               $(self).find('.closeable--expanded').toggle();
               return false;
